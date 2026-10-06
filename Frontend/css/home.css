@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --ink: #20201f;
+  --muted: #77746f;
+  --paper: #f7f5f0;
+  --card: #fffefa;
+  --accent: #bb4d35;
+  --line: #e9e5dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 52px 24px 80px;
+  background: radial-gradient(ellipse at 50% -15%, #fff 0, var(--paper) 62%);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+}
+
+body > h1 {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  letter-spacing: -2.5px;
+  line-height: 1.1;
+}
+
+body > hr {
+  width: min(100%, 760px);
+  margin: 22px auto 28px;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+body > form {
+  width: min(100%, 760px);
+  margin: 0 auto 26px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 21px;
+  background: var(--ink);
+  color: white;
+  font: 600 0.94rem 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+button::before { content: '+  '; color: #f0ae8f; }
+button:hover { background: var(--accent); transform: translateY(-2px); }
+
+body > div {
+  width: min(100%, 760px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+body > div > div {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: 0 8px 28px rgb(55 43 25 / 5%);
+}
+
+body > div > div > div:first-child {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+body > div > div > div:first-child::first-letter { color: var(--accent); }
+
+body > div img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #eee9df;
+}
+
+body > div > div > div:last-child {
+  min-height: 55px;
+  padding: 15px 18px 18px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  body { padding: 34px 16px 56px; }
+  body > div { grid-template-columns: 1fr; gap: 17px; }
+  body > h1 { letter-spacing: -1.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
